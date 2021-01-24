@@ -74,7 +74,7 @@ with open("test.txt", encoding="utf-8") as f:
         nline = line.replace(",", "").replace(".", "").replace("(", "").replace(")", "").replace(":", "")\
             .replace("\"", "").strip().split(" ")
         encode = review_encode(nline)
-        encode = train_data = keras.preprocessing.sequence.pad_sequences([encode], value=word_index["<PAD>"],
+        encode = keras.preprocessing.sequence.pad_sequences([encode], value=word_index["<PAD>"],
                                                         padding="post", maxlen=250)
         predict = model.predict(encode)
         print(line)
